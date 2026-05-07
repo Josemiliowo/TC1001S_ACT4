@@ -1,59 +1,23 @@
-# 🎯 Cannon Game
+# List of changes for this file:
+- The movement speed for the projectile and the balls is faster
+- Make the game never end, so that the balls reposition themselves when they go out of the window.
 
-A simple arcade shooting game built with Python's `turtle` graphics library and the `freegames` package. Click to launch a ball and knock out incoming targets before they cross the screen.
+## Change 1:
+Changed the number by which the projectile's speed is divided, which causes it to go faster.
 
-## Description
+## Change 2:
+We took advantage of the same condition that checks if the target is inside the boundaries, but instead of returning, it warps the target's X position from -200 to 200 and assigns a random Y position.
 
-Blue targets scroll in from the right side of the screen at random heights. Click anywhere to fire a red ball — it launches with velocity based on where you click and arcs under gravity. Hit all the targets to keep playing; miss one and the game ends.
-
-## Requirements
-
-- Python 3.x
-- [`freegames`](https://pypi.org/project/freegames/) library
-
-Install the dependency with:
-
-```bash
-pip install freegames
+## Commit tree:
 ```
-
-## How to Run
-
-```bash
-python cannon.py
+*   523856d (HEAD -> main, origin/main) Merge pull request #2 from GabrielPrzz/main
+|\  
+| *   f064343 Merge branch 'Josemiliowo:main' into main
+| |\  
+| |/  
+|/|   
+* | b7c6c61 made gameplay infinite by returning targets
+| * fbc2b81 Cambio de velocidad de disparo: cambio en el numero que divide la velocidad del proyectil, haciendolo mas rapido
+|/  
+* d71b4b0 added game and readme
 ```
-
-## Controls
-
-| Input | Action |
-|-------|--------|
-| **Mouse click** | Launch the ball toward the clicked position |
-
-Click closer to the bottom-left to shoot at a shallow angle; click higher or further right to launch faster and steeper.
-
-## Gameplay
-
-- **Targets** (blue dots) spawn on the right edge at random heights and drift left continuously.
-- **Click** anywhere on the screen to fire the red ball from the bottom-left corner.
-- The ball travels in an arc, pulled downward by simulated gravity.
-- A target is **destroyed** when the ball comes within 13 pixels of it.
-- The game **ends** when any target reaches the left edge of the screen.
-- The ball can only be re-launched once it leaves the screen boundaries.
-
-## Project Structure
-
-```
-cannon.py     # Main game file
-```
-
-## Customization Ideas
-
-- **Target speed** — Increase the `target.x -= 0.5` value to make targets move faster.
-- **Spawn rate** — Lower the `randrange(40)` threshold to spawn targets more frequently.
-- **Gravity** — Adjust `speed.y -= 0.35` to change how steeply the ball arcs.
-- **Ball size / hit radius** — Change the `> 13` collision threshold or the `dot(6, ...)` size.
-- **Multiple balls** — Extend the code to allow several balls in flight at once.
-
-## License
-
-This project is based on the [freegames](https://github.com/grantjenks/free-python-games) library by Grant Jenks, released under the Apache 2.0 License.
